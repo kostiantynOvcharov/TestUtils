@@ -1,8 +1,9 @@
 Using utils classes from package /testutils on the basis of reflection, you can create such automated tests for example
 
-@Test
+   @Test
    public void class_CreateUserRequest_must_be_dto()
    {
+   
       IValueProvider<PortalSecurityUserId> id =
             new ValueProvider<PortalSecurityUserId>(PortalSecurityUserId.class, new PortalSecurityUserId("id1"),
             new PortalSecurityUserId("id2"));
@@ -13,8 +14,10 @@ Using utils classes from package /testutils on the basis of reflection, you can 
             Iterable.class,
             ImmutableList.of(new AccessRoleId("roleId1")),
             ImmutableList.of(new AccessRoleId("roleId2")));
-      IValueProvider<MailAddress> email =
-            new ValueProvider<MailAddress>(MailAddress.class, new MailAddress("email1@email.com"), new MailAddress("email2@email.com"));
+      IValueProvider<MailAddress> email = new ValueProvider<MailAddress>(
+            MailAddress.class,
+            new MailAddress("email1@email.com"),
+            new MailAddress("email2@email.com"));
       IValueProvider<Boolean> emailConfirmed = new ValueProvider<Boolean>(boolean.class, true, false);
       IValueProvider<String> lastName = new ValueProvider<String>(String.class, "lastName1", "lastName2");
       IValueProvider<String> firstName = new ValueProvider<String>(String.class, "firstName1", "firstName2");
